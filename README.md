@@ -1,14 +1,14 @@
 # VibeTrack
 
-**VibeTrack** é uma aplicação web simples para check-ins emocionais diários em equipe.  
-Os usuários podem registrar como estão se sentindo, e a aplicação calcula a média emocional da equipe no dia.
+**VibeTrack** é uma aplicação web para check-ins emocionais diários em equipe.  
+Os usuários podem registrar como estão se sentindo, e a aplicação calcula a média emocional da equipe no dia e exibe em um formato amigável.
 
 ## 🚀 Funcionalidades
 
 - Registro de check-in emocional (com nota opcional)
 - Cálculo da média emocional diária da equipe
 - Visualização do clima atual da equipe (`/team-vibe`)
-- Interface simples com Thymeleaf
+- Interface com Thymeleaf
 
 ## 🛠 Tecnologias
 
