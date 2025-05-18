@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="UTF-8"/>
+    <title>Termômetro da Equipe</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-full h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div class="w-full max-w-md bg-white p-6 rounded-lg shadow text-center">
+        <h1 class="text-3xl font-bold mb-6 text-blue-800" >Nossa vibe hoje</h1>
+
+    <div class="w-full max-w-md h-8 rounded bg-gray-300 border border-gray-400 overflow-hidden mb-4">
+        <div 
+            th:style="'width:' + (${media} * 20) + '%'" 
+            class="h-full transition-all duration-500"
+            th:classappend="
+            ${media} < 1 ? 'bg-red-600' : 
+            (${media} < 2 ? 'bg-orange-500' : 
+            (${media} < 3 ? 'bg-yellow-400 text-black' : 
+            (${media} < 4 ? 'bg-green-400' : 
+            (${media} < 5 ? 'bg-blue-400' : 'bg-green-700'))))">
+        </div>
+    </div>
+
+    <div class="text-6xl mb-6" th:switch="${T(java.lang.Math).round(media)}">
+        <span th:case="0">😣</span>
+        <span th:case="1">😢</span>
+        <span th:case="2">😴</span>
+        <span th:case="3">😐</span>
+        <span th:case="4">💪</span>
+        <span th:case="5">😄</span>
+        <span th:case="*">😐</span> 
+    </div>
+
+    <p class="text-gray-600 text-sm mb-2">
+     Média: <span th:text="${#numbers.formatDecimal(media, 1, 1)}"></span>
+    </p>
+    </div>
+</body>
+</html>

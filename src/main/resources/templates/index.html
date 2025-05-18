@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Check-in Emocional</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="w-full h-screen flex items-center justify-center bg-gray-50 px-4">
+    <div class="max-w-md bg-white p-6 rounded-lg shadow">
+        <h1 class="text-2xl font-bold mb-6 text-blue-800 text-center">Check-in Emocional</h1>
+
+        <form th:action="@{/checkin}" th:object="${checkin}" method="post" class="space-y-4">
+            <input th:field="*{name}" type="text" placeholder="Seu nome" required
+                   class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400"/>
+
+            <select th:field="*{emotion}" required
+                    class="w-full p-3 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-400">
+                <option value="" disabled selected>Como você está hoje?</option>
+                <option th:each="emotion : ${emotions}"
+                        th:value="${emotion}"
+                        th:text="${emotion.name() == 'HAPPY' ? '😄 Feliz' :
+                                  emotion.name() == 'STRESSED' ? '😣 Estressado' :
+                                  emotion.name() == 'SAD' ? '😢 Triste' :
+                                  emotion.name() == 'TIRED' ? '😴 Cansado' :
+                                  emotion.name() == 'NEUTRAL' ? '😐 Neutro' :
+                                  emotion.name() == 'PRODUCTIVE' ? '💪 Produtivo' :
+                                  emotion.name()}">
+                </option>
+            </select>
+
+            <textarea th:field="*{note}" placeholder="Observações (opcional)"
+                      class="w-full p-3 border border-gray-300 rounded h-24 resize-none focus:outline-none focus:ring-2 focus:ring-blue-400"></textarea>
+
+            <button type="submit"
+                    class="w-full bg-blue-600 text-white py-3 rounded hover:bg-blue-700 transition duration-200">
+                Enviar
+            </button>
+        </form>
+    </div>
+</body>
+</html>
