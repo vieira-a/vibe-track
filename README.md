@@ -16,6 +16,7 @@ Os usuários podem registrar como estão se sentindo, e a aplicação calcula a 
 - Spring Boot
 - Spring MVC
 - Spring Data JPA
+- PostgreSQL
 - Thymeleaf
 - Maven
 
@@ -27,6 +28,20 @@ Os usuários podem registrar como estão se sentindo, e a aplicação calcula a 
    git clone https://github.com/vieira-a/vibetrack.git
    cd vibetrack
    ```
+
+2. Banco de dados
+
+**IMPORTANTE**
+Para sistemas em produção, **é extremamente recomendável não expor as configurações contendo dados sensíveis como URL, logins e senhas de banco de dados**.
+
+Visto que este sistema é **exlusivamente para fins acadêmicos**, as configurações de banco de dados estão expostas em `src/main/resources/application.properties`.
+Para que funcione localmente, basta criar um banco de dados na sua instância do PostgreSQL, e modificar este arquivo conforme sua necessidade.
+
+```bash
+   spring.datasource.url=jdbc:postgresql://localhost:5432/seu_banco
+   spring.datasource.username=usuario_banco
+   spring.datasource.password=senha_banco
+```
 
 2. Compile o projeto
 
