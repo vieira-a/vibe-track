@@ -43,19 +43,19 @@ Para que funcione localmente, basta criar um banco de dados na sua instância do
    spring.datasource.password=senha_banco
 ```
 
-2. Compile o projeto
+3. Compile o projeto
 
    ```bash
      ./mvnw clean install
    ```
 
-3. Rode a aplicação
+4. Rode a aplicação
 
    ```bash
      ./mvnw spring-boot:run
    ```
 
-4. Acesse em
+5. Acesse em
 
    ```html
    http://localhost:8080/
